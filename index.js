@@ -277,13 +277,22 @@ class Metaflac {
    * Add a tag.
    * The FIELD must comply with the Vorbis comment spec, of the form NAME=VALUE. If there is currently no tag block, one will be created.
    *
-   * @param {string} field
+   * @param {string} | {array} field
    */
   setTag(field) {
-    if (field.indexOf('=') === -1) {
-      throw new Error(`malformed vorbis comment field "${field}", field contains no '=' character`);
-    }
-    this.tags.push(field);
+    if (Array.isArray(field)) {
+      for (let i of field) {
+        if (i.indexOf('=') === -1) {
+          throw new Error(`malformed vorbis comment field "${i}", field contains no '=' character`);
+        }
+        this.tags.push(i);
+      }
+    } else {
+      if (field.indexOf('=') === -1) {
+        throw new Error(`malformed vorbis comment field "${field}", field contains no '=' character`);
+      }
+      this.tags.push(field);
+    } 
   }
 
   /**
