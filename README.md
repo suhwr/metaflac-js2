@@ -14,6 +14,11 @@ npm i metaflac-js2 --save
 const Metaflac = require('metaflac-js2');
 const flac = new Metaflac('/path/to/flac.flac or buffer');
 flac.setTag('TITLE=My Music');
+flac.setTag([
+    'ALBUM=My Music',
+    'ARTIST=The artist',
+    'YEAR_OF_RELEASE=2015'
+]);
 flac.save();
 ```
 
