@@ -6,11 +6,11 @@ A pure JavaScript implementation of the metaflac (the official FLAC tool written
 
 Use as module:
 
-```
-npm i metaflac-js2 --save
+```bash
+npm i metaflac-js2@github:suhwr/metaflac-js2
 ```
 
-```
+```js
 const Metaflac = require('metaflac-js2');
 const flac = new Metaflac('/path/to/flac.flac or buffer');
 flac.setTag('TITLE=My Music');
@@ -26,8 +26,8 @@ Use as cli:
 
 Usage is basically consistent with official tools.
 
-```
-npm i metaflac-js2 -g
+```bash
+npm i metaflac-js2@github:suhwr/metaflac-js2 -g
 metaflac-js -h
 ```
 
